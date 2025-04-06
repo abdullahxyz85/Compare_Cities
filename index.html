@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wise Move - City Comparison</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1>Wise<span>Move</span></h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#" class="active">Compare</a></li>
+            <li><a href="#">Reviews</a></li>
+            <li><a href="#">Travel Plans</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h2>Compare Cities Side by Side</h2>
+          <p>
+            Make smarter moving decisions with our detailed city comparisons
+          </p>
+
+          <div class="comparison-form">
+            <div class="input-group">
+              <input type="text" id="city1" placeholder="Enter City 1" />
+              <div class="vs">VS</div>
+              <input type="text" id="city2" placeholder="Enter City 2" />
+            </div>
+            <button id="compareBtn" class="btn">Compare Now</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results" id="results">
+        <div class="container">
+          <h2>Comparison Results</h2>
+          <p class="comparison-header">
+            Comparing <span id="city1Name">City 1</span> and
+            <span id="city2Name">City 2</span>
+          </p>
+
+          <div class="comparison-category" id="costOfLiving">
+            <h3>Cost of Living</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label">City 1</h4>
+                <div class="data-value" id="col-city1">
+                  <div class="bar-container">
+                    <div class="bar" style="width: 60%"></div>
+                  </div>
+                  <span>$1,200/month</span>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label">City 2</h4>
+                <div class="data-value" id="col-city2">
+                  <div class="bar-container">
+                    <div class="bar" style="width: 80%"></div>
+                  </div>
+                  <span>$1,800/month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="housing">
+            <h3>Housing</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label2">City 1</h4>
+                <div class="data-value" id="housing-city1">
+                  <div class="data-row">
+                    <span>Rent (1BR):</span>
+                    <span>$800/month</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Buy (per sq ft):</span>
+                    <span>$200</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Utilities:</span>
+                    <span>$120/month</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label2">City 2</h4>
+                <div class="data-value" id="housing-city2">
+                  <div class="data-row">
+                    <span>Rent (1BR):</span>
+                    <span>$1,200/month</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Buy (per sq ft):</span>
+                    <span>$350</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Utilities:</span>
+                    <span>$150/month</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="food">
+            <h3>Food & Groceries</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label3">City 1</h4>
+                <div class="data-value" id="food-city1">
+                  <div class="data-row">
+                    <span>Grocery Index:</span>
+                    <span class="better"
+                      >75 <i class="fas fa-arrow-down"></i
+                    ></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Restaurant Meal:</span>
+                    <span>$15</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label3">City 2</h4>
+                <div class="data-value" id="food-city2">
+                  <div class="data-row">
+                    <span>Grocery Index:</span>
+                    <span class="worse"
+                      >92 <i class="fas fa-arrow-up"></i
+                    ></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Restaurant Meal:</span>
+                    <span>$22</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="transportation">
+            <h3>Transportation</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label4">City 1</h4>
+                <div class="data-value" id="transport-city1">
+                  <div class="data-row">
+                    <span>Public Transit:</span>
+                    <span
+                      ><i class="fas fa-bus"></i>
+                      <i class="fas fa-train"></i> Good</span
+                    >
+                  </div>
+                  <div class="data-row">
+                    <span>Monthly Pass:</span>
+                    <span>$70</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Taxi Start:</span>
+                    <span>$3.50</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label4">City 2</h4>
+                <div class="data-value" id="transport-city2">
+                  <div class="data-row">
+                    <span>Public Transit:</span>
+                    <span
+                      ><i class="fas fa-bus"></i> <i class="fas fa-train"></i>
+                      <i class="fas fa-subway"></i> Excellent</span
+                    >
+                  </div>
+                  <div class="data-row">
+                    <span>Monthly Pass:</span>
+                    <span>$90</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Taxi Start:</span>
+                    <span>$4.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="tourism">
+            <h3>Places to Visit Nearby / Tourist Spots</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label5">City 1</h4>
+                <div class="data-value" id="tourism-city1">
+                  <ul class="spots-list">
+                    <li><i class="fas fa-landmark"></i> Historic Downtown</li>
+                    <li><i class="fas fa-tree"></i> National Park</li>
+                    <li><i class="fas fa-water"></i> Waterfront</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label5">City 2</h4>
+                <div class="data-value" id="tourism-city2">
+                  <ul class="spots-list">
+                    <li><i class="fas fa-monument"></i> City Monument</li>
+                    <li><i class="fas fa-mountain"></i> Mountain Range</li>
+                    <li><i class="fas fa-store"></i> Shopping District</li>
+                    <li><i class="fas fa-theater-masks"></i> Arts Center</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="malls">
+            <h3>Malls</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label6">City 1</h4>
+                <div class="data-value" id="malls-city1">
+                  <div class="data-row">
+                    <span>Number of Malls:</span>
+                    <span>4</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Top Mall:</span>
+                    <span>City Center Mall</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label6">City 2</h4>
+                <div class="data-value" id="malls-city2">
+                  <div class="data-row">
+                    <span>Number of Malls:</span>
+                    <span>7</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Top Mall:</span>
+                    <span>Grand Plaza</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="population">
+            <h3>Population</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label7">City 1</h4>
+                <div class="data-value" id="population-city1">
+                  <div class="data-row">
+                    <span>Total:</span>
+                    <span>450,000</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Density:</span>
+                    <span>3,200/km²</span>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="professionChart1"></canvas>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label7">City 2</h4>
+                <div class="data-value" id="population-city2">
+                  <div class="data-row">
+                    <span>Total:</span>
+                    <span>750,000</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Density:</span>
+                    <span>4,800/km²</span>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="professionChart2"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="climate">
+            <h3>Pollution & Weather</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label8">City 1</h4>
+                <div class="data-value" id="climate-city1">
+                  <div class="data-row">
+                    <span>Air Quality Index:</span>
+                    <span class="better">45 <i class="fas fa-check"></i></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Avg Temperature:</span>
+                    <span>68°F</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Annual Rainfall:</span>
+                    <span>30 inches</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label8">City 2</h4>
+                <div class="data-value" id="climate-city2">
+                  <div class="data-row">
+                    <span>Air Quality Index:</span>
+                    <span class="worse">75 <i class="fas fa-times"></i></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Avg Temperature:</span>
+                    <span>72°F</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Annual Rainfall:</span>
+                    <span>45 inches</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="government">
+            <h3>Government Policies</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label9">City 1</h4>
+                <div class="data-value" id="government-city1">
+                  <div class="data-row">
+                    <span>Tax Rate:</span>
+                    <span>22%</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Healthcare:</span>
+                    <span class="better"
+                      >Good <i class="fas fa-check"></i
+                    ></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Education:</span>
+                    <span>Above Average</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label9">City 2</h4>
+                <div class="data-value" id="government-city2">
+                  <div class="data-row">
+                    <span>Tax Rate:</span>
+                    <span>25%</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Healthcare:</span>
+                    <span class="better"
+                      >Excellent <i class="fas fa-check"></i
+                    ></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Education:</span>
+                    <span>Excellent</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="culture">
+            <h3>People and Culture</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label10">City 1</h4>
+                <div class="data-value" id="culture-city1">
+                  <div class="data-row">
+                    <span>Language:</span>
+                    <span>English (primary)</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Cultural Events:</span>
+                    <span>Moderate</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Diversity Index:</span>
+                    <span>72/100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label10">City 2</h4>
+                <div class="data-value" id="culture-city2">
+                  <div class="data-row">
+                    <span>Language:</span>
+                    <span>English, Spanish</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Cultural Events:</span>
+                    <span>Frequent</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Diversity Index:</span>
+                    <span>85/100</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comparison-category" id="lifestyle">
+            <h3>Uniqueness / Lifestyle</h3>
+            <div class="comparison-content">
+              <div class="city-data">
+                <h4 id="city1Label11">City 1</h4>
+                <div class="data-value" id="lifestyle-city1">
+                  <div class="data-row">
+                    <span>Work-Life Balance:</span>
+                    <span class="better"
+                      >Good <i class="fas fa-check"></i
+                    ></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Nightlife:</span>
+                    <span>Moderate</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Outdoor Activities:</span>
+                    <span>Abundant</span>
+                  </div>
+                </div>
+              </div>
+              <div class="city-data">
+                <h4 id="city2Label11">City 2</h4>
+                <div class="data-value" id="lifestyle-city2">
+                  <div class="data-row">
+                    <span>Work-Life Balance:</span>
+                    <span>Average</span>
+                  </div>
+                  <div class="data-row">
+                    <span>Nightlife:</span>
+                    <span class="better"
+                      >Excellent <i class="fas fa-check"></i
+                    ></span>
+                  </div>
+                  <div class="data-row">
+                    <span>Outdoor Activities:</span>
+                    <span>Limited</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews">
+        <div class="container">
+          <h2>Reviews & Ratings</h2>
+          <div class="reviews-content">
+            <div class="review-form">
+              <h3>Add Your Experience</h3>
+              <form id="reviewForm">
+                <div class="form-group">
+                  <label for="reviewCity">City:</label>
+                  <input type="text" id="reviewCity" required />
+                </div>
+                <div class="form-group">
+                  <label for="reviewRating">Rating:</label>
+                  <select id="reviewRating" required>
+                    <option value="">Select Rating</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Good</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="1">1 - Poor</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="reviewText">Your Experience:</label>
+                  <textarea id="reviewText" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Review</button>
+              </form>
+            </div>
+
+            <div class="review-list">
+              <h3>Recent Reviews</h3>
+              <div class="review-item">
+                <div class="review-header">
+                  <h4>New York City</h4>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+                <p>
+                  Great city with endless opportunities. The cost of living is
+                  high, but the energy and culture make it worth it. Public
+                  transportation is excellent.
+                </p>
+                <div class="review-meta">John D. - 2 weeks ago</div>
+              </div>
+
+              <div class="review-item">
+                <div class="review-header">
+                  <h4>Chicago</h4>
+                  <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+                <p>
+                  Chicago offers a great balance of big city amenities with more
+                  affordable housing than NYC or SF. Winters are tough but the
+                  summer makes up for it.
+                </p>
+                <div class="review-meta">Sarah M. - 1 month ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="travel-planner">
+        <div class="container">
+          <h2>Plan Your Visit</h2>
+          <p>
+            Thinking about visiting before making a move? Let us help plan your
+            trip!
+          </p>
+          <button id="travelPlanBtn" class="btn">Create Travel Plan</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>Wise<span>Move</span></h2>
+            <p>Make smarter moving decisions</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Compare Cities</a></li>
+              <li><a href="#">Reviews</a></li>
+              <li><a href="#">Travel Plans</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-envelope"></i> info@wisemove.com</p>
+            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 WiseMove. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
