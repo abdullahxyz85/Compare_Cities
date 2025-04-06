@@ -574,3 +574,127 @@ footer {
     opacity: 1;
   }
 }
+
+/* Visual Comparison Charts Styles */
+.visual-charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 25px !important;
+}
+
+.chart-section {
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  flex: 1 0 calc(50% - 25px);
+  min-width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chart-section.full-width {
+  flex-basis: 100%;
+}
+
+.chart-section h4 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-size: 1.1rem;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 300px;
+}
+
+.chart-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.chart-tab {
+  background-color: var(--light-gray);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.chart-tab.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.chart-content {
+  display: none;
+  height: 100%;
+}
+
+.chart-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Map Placeholder */
+.map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 40px 20px;
+  text-align: center;
+  min-height: 250px;
+  width: 100%;
+}
+
+.map-icon {
+  font-size: 60px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.map-placeholder h4 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.map-placeholder p {
+  max-width: 500px;
+  color: var(--dark-gray);
+}
+
+/* Bar Chart Custom Styling */
+.custom-tooltip {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Responsive adjustments for charts */
+@media (max-width: 768px) {
+  .chart-section {
+    flex-basis: 100%;
+  }
+
+  .chart-wrapper {
+    height: 250px;
+  }
+}

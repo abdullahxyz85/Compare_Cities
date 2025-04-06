@@ -55,6 +55,101 @@
             <span id="city2Name">City 2</span>
           </p>
 
+          <!-- Visual Comparison Charts Section -->
+          <div class="comparison-category" id="visual-charts">
+            <h3>Visual Comparison Charts</h3>
+            <div class="comparison-content visual-charts-container">
+              <!-- Bar Chart Comparison -->
+              <div class="chart-section full-width">
+                <h4>Key Metrics Comparison</h4>
+                <div class="chart-wrapper">
+                  <canvas id="barComparisonChart"></canvas>
+                </div>
+              </div>
+
+              <!-- Population Distribution by Profession -->
+              <div class="chart-section">
+                <h4>Population by Profession</h4>
+                <div class="chart-tabs">
+                  <button class="chart-tab active" data-city="1">
+                    <span id="city1TabLabel">City 1</span>
+                  </button>
+                  <button class="chart-tab" data-city="2">
+                    <span id="city2TabLabel">City 2</span>
+                  </button>
+                </div>
+                <div class="chart-wrapper">
+                  <div
+                    class="chart-content active"
+                    id="professionChartContainer1"
+                  >
+                    <canvas id="professionChart1"></canvas>
+                  </div>
+                  <div class="chart-content" id="professionChartContainer2">
+                    <canvas id="professionChart2"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Transport Usage -->
+              <div class="chart-section">
+                <h4>Transport Usage</h4>
+                <div class="chart-tabs">
+                  <button
+                    class="chart-tab active"
+                    data-city="1"
+                    data-chart="transport"
+                  >
+                    <span id="city1TransportLabel">City 1</span>
+                  </button>
+                  <button
+                    class="chart-tab"
+                    data-city="2"
+                    data-chart="transport"
+                  >
+                    <span id="city2TransportLabel">City 2</span>
+                  </button>
+                </div>
+                <div class="chart-wrapper">
+                  <div
+                    class="chart-content active"
+                    id="transportChartContainer1"
+                  >
+                    <canvas id="transportChart1"></canvas>
+                  </div>
+                  <div class="chart-content" id="transportChartContainer2">
+                    <canvas id="transportChart2"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cost Changes Over Time -->
+              <div class="chart-section full-width">
+                <h4>Cost of Living Trends (6 Months)</h4>
+                <div class="chart-wrapper">
+                  <canvas id="costTrendChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder Section -->
+          <div class="comparison-category" id="map-section">
+            <h3>Interactive City Maps</h3>
+            <div class="comparison-content">
+              <div class="map-placeholder">
+                <div class="map-icon">
+                  <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h4>Interactive Maps Coming Soon</h4>
+                <p>
+                  Our upcoming interactive maps will show neighborhoods, points
+                  of interest, and more for both cities.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <div class="comparison-category" id="costOfLiving">
             <h3>Cost of Living</h3>
             <div class="comparison-content">
